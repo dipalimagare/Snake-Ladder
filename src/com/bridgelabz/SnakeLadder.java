@@ -11,11 +11,11 @@ public class SnakeLadder {
       System.out.println("Welcome to Snake and Ladder simulator");
 		int playerPosition = 0;	
 		System.out.println("Starting position is " + playerPosition );
-		
 		while ( winningPosition > playerPosition ) {
 			int die = (int) (Math.floor(Math.random() * 10) % 6 + 1);
-			
-			int option = (int) (Math.floor(Math.random() * 10) % 3);
+		int remainingPosition = winningPosition - playerPosition;
+		int option = (int) (Math.floor(Math.random() * 10) % 3);
+		if( remainingPosition >= die ) {
 			switch (option) {
 				case 0:
 					System.out.println("No play : " + 0);
@@ -31,8 +31,9 @@ public class SnakeLadder {
 					if (playerPosition < 0)
 						playerPosition = 0;
 			}
-			}
-			System.out.println("Player position: " + playerPosition);
+		} // end of if
+		} // end of while
+		System.out.println("Player position: " + playerPosition);
 	}
 
 }
